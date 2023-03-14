@@ -27,8 +27,8 @@ class Logic(Board, Token):
         self.draw_token((base_coordinate_1, base_coordinate_1), 0)
 
         self.board_matrix[base_coordinate_2][base_coordinate_2] = 1
-        self.board_matrix[base_coordinate_2][base_coordinate_2] = 2
-        self.board_matrix[base_coordinate_1][base_coordinate_1] = 2
+        self.board_matrix[base_coordinate_2][base_coordinate_1] = 2
+        self.board_matrix[base_coordinate_1][base_coordinate_2] = 2
         self.board_matrix[base_coordinate_1][base_coordinate_1] = 1
 
         self.black_score(self.score1)

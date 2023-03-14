@@ -16,9 +16,9 @@ def main():
         print("Error, enter 1 or 2")
         mode = int(turtle.textinput("Mode of game", "Enter 1 for use the Von Neumann Neighborhoods for adjacency or 2 for free mode:"))
         
-    juego = Logic(number, mode)
-    juego.print_board()
-    juego.initial_board()
-    juego.playing()
+    game = Logic(number, mode)
+    game.print_board()
+    game.initial_board()
+    game.playing()
 
 main()

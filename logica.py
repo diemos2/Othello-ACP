@@ -51,20 +51,25 @@ class Logica(Tablero, Ficha):
             else:
                 print("Realiza una selección válida")
                 return
-        
-            print("Turno ficha blanca")
-            turtle.onscreenclick(self.othello_blanca)
-        else:
-            if self.conteo[0] > self.conteo[1]:
-                print("Victoria de las fichas negras " + str(self.conteo[0]) + " a " + str(self.conteo[1]) + " de las fichas blancas")
-            elif self.conteo[0] < self.conteo[1]:
-                print("Victoria de las fichas blancas " + str(self.conteo[1]) + " a " + str(self.conteo[0]) + " de las fichas negras")
-            elif self.disponibles[0] == 0:
-                print("Oh no, no hay mas fichas negras disponibles, victoria de las fichas blancas")
-            elif self.disponibles[1] == 0:
-                print("Oh no, no hay mas fichas blancas disponibles, victoria de las fichas negras")
+
+            self.jugador = 1
+            if self.turno_disponible() == False:
+                if self.conteo[0] > self.conteo[1]:
+                    print("Victoria de las fichas negras " + str(self.conteo[0]) + " a " + str(self.conteo[1]) + " sobre las fichas blancas")
+                elif self.conteo[0] < self.conteo[1]:
+                    print("Victoria de las fichas blancas " + str(self.conteo[1]) + " a " + str(self.conteo[0]) + " sobre las fichas negras")
+                elif self.disponibles[0] == 0:
+                    print("Oh no, no hay mas fichas negras disponibles, victoria de las fichas blancas")
+                elif self.disponibles[1] == 0:
+                    print("Oh no, no hay mas fichas blancas disponibles, victoria de las fichas negras")
+                else:
+                    print("Juego finalizado, ¡hay empate!")
+
             else:
-                print("Juego finalizado, ¡hay empate!")
+                print("Turno ficha blanca")
+                turtle.onscreenclick(self.othello_blanca)
+        else:
+            return
     
     def othello_blanca(self, x, y):
         self.jugador = 1

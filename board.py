@@ -130,7 +130,7 @@ class Board():
 
         token.color(self.token_color[0], self.token_color[color])
 
-        token.setposition(coordinates)
+        token.goto(coordinates)
         token.setheading(90)
 
         token.begin_fill()

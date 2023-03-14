@@ -1,24 +1,24 @@
 import turtle
-from logica import Logica
+from logic import Logic
 
 def main():
-    numero = int(turtle.textinput("Tamaño del tablero", "Digita el tamaño del tablero, recuerda que debe ser un número que a su vez define las filas y columnas:"))
+    number = int(turtle.textinput("Size of board", "Enter the size of board, remember must be a number that define at same time rows and columns:"))
 
-    if numero % 2 == 0 and numero >= 4:
-        print ("¡Vamos a jugar!")
+    if number % 2 == 0 and number >= 4:
+        print ("¡Let's play!")
     else:
-        print ("Error, el número debe ser par y mayor o igual a 4")
-        numero = int(turtle.textinput("Tamaño del tablero", "Digita el tamaño del tablero, recuerda que debe ser un número que a su vez define las filas y columnas:"))
+        print ("Error, the number must be a pair number and greater than or equal to 4")
+        number = int(turtle.textinput("Size of board", "Enter the size of board, remember must be a number that define at same time rows and columns:"))
     
-    tipo = int(turtle.textinput("Modo de juego", "Digita 1 para estilo vecindades de Von Neumann o 2 para estilo libre:"))
+    mode = int(turtle.textinput("Mode of game", "Enter 1 for use the Von Neumann Neighborhoods for adjacency or 2 for free mode:"))
 
-    if tipo < 1 or tipo > 2:
-        print("Error, digita 1 o 2")
-        tipo = int(turtle.textinput("Modo de juego", "Digita 1 para estilo vecindades de Von Neumann o 2 para estilo libre:"))
+    if mode < 1 or mode > 2:
+        print("Error, enter 1 or 2")
+        mode = int(turtle.textinput("Mode of game", "Enter 1 for use the Von Neumann Neighborhoods for adjacency or 2 for free mode:"))
         
-    juego = Logica(numero, tipo)
-    juego.imprimir_tablero()
-    juego.tablero_inicial()
-    juego.jugando()
+    juego = Logic(number, mode)
+    juego.print_board()
+    juego.initial_board()
+    juego.playing()
 
 main()

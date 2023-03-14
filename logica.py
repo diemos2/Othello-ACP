@@ -1,6 +1,6 @@
 import turtle
-from tablero import Tablero
-from ficha import Ficha
+from board import Board
+from tokens import Token
 
 class Logica(Tablero, Ficha):
     def __init__(self, celdas, tipo):

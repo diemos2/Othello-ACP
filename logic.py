@@ -43,7 +43,7 @@ class Logic(Board, Token):
         turtle.mainloop()
 
     def othello_black(self, x, y):
-        if self.available_turn() == True and self.count[0] < 10 and self.count[1] < 10:
+        if self.available_turn() == True:
             self.get_selection(x, y)
             if self.player_choice != () and self.check(self.player_choice) == True:
                 turtle.onscreenclick(None)
@@ -65,15 +65,18 @@ class Logic(Board, Token):
                 else:
                     print("Game over, ¡is a tie!")
 
+            elif self.count[0] >= 32 or self.count[1] >= 32:
+                print("Black tokens win " + str(self.count[0]) + " to " + str(self.count[1]) + " over white tokens")
+
             else:
                 print("Turn for white token")
                 turtle.onscreenclick(self.othello_white)
         else:
-            print("White tokens win " + str(self.count[1]) + " to " + str(self.count[0]) + " over black tokens")
+            return
     
     def othello_white(self, x, y):
         self.player = 1
-        if self.available_turn() == True and self.count[0] < 10 and self.count[1] < 10:
+        if self.available_turn() == True:
             self.get_selection(x, y)
             if self.player_choice != () and self.check(self.player_choice) == True:
                 turtle.onscreenclick(None)
@@ -94,11 +97,13 @@ class Logic(Board, Token):
                     print("Oh no, no more available white tokens, black tokens wins")
                 else:
                     print("Game over, ¡is a tie!")
+            elif self.count[0] >= 32 or self.count[1] >= 32:
+                print("White tokens win " + str(self.count[1]) + " to " + str(self.count[0]) + " over black tokens")
             else:
                 print("Turn for black token")
                 turtle.onscreenclick(self.othello_black)
         else:
-            print("Black tokens win " + str(self.count[0]) + " to " + str(self.count[1]) + " over white tokens")
+            return
 
     def available_turn(self):
         for i in range(self.cells):

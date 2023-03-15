@@ -43,7 +43,7 @@ class Logic(Board, Token):
         turtle.mainloop()
 
     def othello_black(self, x, y):
-        if self.available_turn() == True:
+        if self.available_turn() == True and self.count[0] < 10 and self.count[1] < 10:
             self.get_selection(x, y)
             if self.player_choice != () and self.check(self.player_choice) == True:
                 turtle.onscreenclick(None)
@@ -69,11 +69,11 @@ class Logic(Board, Token):
                 print("Turn for white token")
                 turtle.onscreenclick(self.othello_white)
         else:
-            return
+            print("White tokens win " + str(self.count[1]) + " to " + str(self.count[0]) + " over black tokens")
     
     def othello_white(self, x, y):
         self.player = 1
-        if self.available_turn() == True:
+        if self.available_turn() == True and self.count[0] < 10 and self.count[1] < 10:
             self.get_selection(x, y)
             if self.player_choice != () and self.check(self.player_choice) == True:
                 turtle.onscreenclick(None)
@@ -98,7 +98,7 @@ class Logic(Board, Token):
                 print("Turn for black token")
                 turtle.onscreenclick(self.othello_black)
         else:
-            return
+            print("Black tokens win " + str(self.count[0]) + " to " + str(self.count[1]) + " over white tokens")
 
     def available_turn(self):
         for i in range(self.cells):
@@ -180,19 +180,17 @@ class Logic(Board, Token):
         self.white_score(self.score1)
         self.black_available(self.score2)
         self.white_available(self.score2)
-        print(self.count)
-        print(self.availables)
         
     def black_score(self, black_score):
         black_score.penup()
-        black_score.goto((-(self.cells / 4) * self.cell_size), (((self.cells / 2) * self.cell_size) + 35))
-        black_score.write(self.count[0], align = "center", font=("Georgia", 35, "normal"))
+        black_score.goto(0, ((-(self.cells * self.cell_size) / 2) - 170))
+        black_score.write(self.count[0], align = "center", font=("Arial", 35, "normal"))
         black_score.hideturtle()
         
     def white_score(self, white_score):
         white_score.penup()
-        white_score.goto(((self.cells / 4) * self.cell_size), (((self.cells / 2) * self.cell_size) + 35))
-        white_score.write(self.count[1], align = "center", font=("Georgia", 35, "normal"))
+        white_score.goto(0, ((-(self.cells * self.cell_size) / 2) - 260))
+        white_score.write(self.count[1], align = "center", font=("Arial", 35, "normal"))
         white_score.hideturtle()
 
     def empty_score(self, score):
@@ -200,15 +198,15 @@ class Logic(Board, Token):
 
     def black_available(self, black_available):
         black_available.penup()
-        black_available.goto((-(self.cells / 4) * self.cell_size), ((-(self.cells / 2) * self.cell_size) - 80))
-        black_available.write(self.availables[0], align = "center", font=("Georgia", 35, "normal"))
+        black_available.goto((((self.cells * self.cell_size) / 4) + 35), ((-(self.cells * self.cell_size) / 2) - 170))
+        black_available.write(self.availables[0], align = "center", font=("Arial", 35, "normal"))
         black_available.hideturtle()
         
     def white_available(self, white_available):
         white_available.penup()
-        white_available.goto(((self.cells / 4) * self.cell_size), ((-(self.cells / 2) * self.cell_size) - 80))
-        white_available.write(self.availables[1], align = "center", font=("Georgia", 35, "normal"))
+        white_available.goto((((self.cells * self.cell_size) / 4) + 35), ((-(self.cells * self.cell_size) / 2) - 260))
+        white_available.write(self.availables[1], align = "center", font=("Arial", 35, "normal"))
         white_available.hideturtle()
 
     def empty_available(self, available):
-        available.clear()
+        available.clear()        

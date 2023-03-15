@@ -1,7 +1,6 @@
 
 class Token():
-    def __init__(self, quantity = 32, count = [2, 2], availables = [30, 30]):
-        self.quantity = quantity
+    def __init__(self, count = [2, 2], availables = [30, 30]):
         self.count = count
         self.availables = availables
 

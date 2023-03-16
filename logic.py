@@ -16,6 +16,7 @@ class Logic(Board, Token):
 
         self.score1 = turtle.Turtle(visible = False)
         self.score2 = turtle.Turtle(visible = False)
+        self.play_text = turtle.Turtle(visible = False)
 
     def initial_board(self):
         base_coordinate_1 = int(self.cells / 2)
@@ -37,6 +38,7 @@ class Logic(Board, Token):
         self.white_available(self.score2)
 
     def playing(self):
+        self.black_play_text(self.play_text)
         print("Turn for black token")
         self.player = 0
         turtle.onscreenclick(self.othello_black)
@@ -69,6 +71,8 @@ class Logic(Board, Token):
                 print("Black tokens win " + str(self.count[0]) + " to " + str(self.count[1]) + " over white tokens")
 
             else:
+                self.empty_play_text(self.play_text)
+                self.white_play_text(self.play_text)
                 print("Turn for white token")
                 turtle.onscreenclick(self.othello_white)
         else:
@@ -100,6 +104,8 @@ class Logic(Board, Token):
             elif self.count[0] >= 32 or self.count[1] >= 32:
                 print("White tokens win " + str(self.count[1]) + " to " + str(self.count[0]) + " over black tokens")
             else:
+                self.empty_play_text(self.play_text)
+                self.black_play_text(self.play_text)
                 print("Turn for black token")
                 turtle.onscreenclick(self.othello_black)
         else:
@@ -214,4 +220,19 @@ class Logic(Board, Token):
         white_available.hideturtle()
 
     def empty_available(self, available):
-        available.clear()        
+        available.clear()
+
+    def black_play_text(self, black_play_text):
+        black_play_text.penup()
+        black_play_text.goto(0, (((self.cells * self.cell_size) / 2) + 30))
+        black_play_text.write("Player 1 plays...", align = "center", font=("Georgia", 15, "normal"))
+        black_play_text.hideturtle()
+    
+    def white_play_text(self, white_play_text):
+        white_play_text.penup()
+        white_play_text.goto(0, (((self.cells * self.cell_size) / 2) + 30))
+        white_play_text.write("Player 2 plays...", align = "center", font=("Georgia", 15, "normal"))
+        white_play_text.hideturtle()
+    
+    def empty_play_text(self, play_text):
+        play_text.clear()

@@ -54,7 +54,7 @@ class Board():
             board.penup()
 
         turtle.penup()
-        turtle.goto(0, (((self.cells / 2) * self.cell_size) + 35))
+        turtle.goto(0, (((self.cells / 2) * self.cell_size) + 70))
         turtle.write("Othello", align = "center", font=("Georgia", 40, "normal"))
         turtle.hideturtle()
 

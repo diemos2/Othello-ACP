@@ -4,7 +4,7 @@ import math
 turtle.title("OTHELLO by Diego Moscoso")
 
 class Board():
-    def __init__(self, cells = 8, cell_size = 70, token_size = 25, line_color = "black", board_color = "forest green", token_color = ["black", "white"]):
+    def __init__(self, cells = 8, cell_size = 60, token_size = 20, line_color = "black", board_color = "forest green", token_color = ["black", "white"]):
         self.cells = cells
         self.cell_size = cell_size
         self.token_size = token_size
@@ -54,7 +54,7 @@ class Board():
             board.penup()
 
         turtle.penup()
-        turtle.goto(0, (((self.cells / 2) * self.cell_size) + 120))
+        turtle.goto(0, (((self.cells / 2) * self.cell_size) + 35))
         turtle.write("Othello", align = "center", font=("Georgia", 50, "normal"))
         turtle.hideturtle()
 

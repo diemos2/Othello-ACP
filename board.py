@@ -4,7 +4,7 @@ import math
 turtle.title("OTHELLO by Diego Moscoso")
 
 class Board():
-    def __init__(self, cells = 8, cell_size = 60, token_size = 20, line_color = "black", board_color = "forest green", token_color = ["black", "white"]):
+    def __init__(self, cells, cell_size = 40, token_size = 15, line_color = "black", board_color = "forest green", token_color = ["black", "white"]):
         self.cells = cells
         self.cell_size = cell_size
         self.token_size = token_size
@@ -55,13 +55,13 @@ class Board():
 
         turtle.penup()
         turtle.goto(0, (((self.cells / 2) * self.cell_size) + 35))
-        turtle.write("Othello", align = "center", font=("Georgia", 50, "normal"))
+        turtle.write("Othello", align = "center", font=("Georgia", 40, "normal"))
         turtle.hideturtle()
 
         turtle.penup()
         turtle.speed(0)
         turtle.color(self.line_color, self.token_color[0])
-        turtle.goto((corner + 20), (corner - 145))
+        turtle.goto((corner), (corner - 80))
         turtle.setheading(90)
 
         turtle.begin_fill()
@@ -72,7 +72,7 @@ class Board():
         turtle.penup()
         turtle.speed(0)
         turtle.color(self.line_color, self.token_color[1])
-        turtle.goto((corner + 20), (corner - 235))
+        turtle.goto((corner), (corner - 130))
         turtle.setheading(90)
 
         turtle.begin_fill()
@@ -81,23 +81,23 @@ class Board():
         turtle.end_fill()
 
         turtle.penup()
-        turtle.goto((corner + 70), (corner - 165))
-        turtle.write("Player 1", align = "left", font=("Georgia", 25, "normal"))
+        turtle.goto((corner + 20), (corner - 90))
+        turtle.write("Player 1", align = "left", font=("Georgia", 12, "normal"))
         turtle.hideturtle()
 
         turtle.penup()
-        turtle.goto((corner + 70), (corner - 255))
-        turtle.write("Player 2", align = "left", font=("Georgia", 25, "normal"))
+        turtle.goto((corner + 20), (corner - 140))
+        turtle.write("Player 2", align = "left", font=("Georgia", 12, "normal"))
         turtle.hideturtle()
 
         turtle.penup()
-        turtle.goto(0, ((-(self.cells * self.cell_size) / 2) - 95))
-        turtle.write("Score", align = "center", font=("Georgia", 25, "normal"))
+        turtle.goto(15, (((-(self.cells * self.cell_size) / 2)) - 50))
+        turtle.write("Score", align = "center", font=("Georgia", 12, "normal"))
         turtle.hideturtle()
 
         turtle.penup()
-        turtle.goto((((self.cells * self.cell_size) / 4) + 35), ((-(self.cells * self.cell_size) / 2) - 100))
-        turtle.write("Avail.\ntokens", align = "center", font=("Georgia", 25, "normal"))
+        turtle.goto((((self.cells * self.cell_size) / 4) + 35), ((-(self.cells * self.cell_size) / 2) - 50))
+        turtle.write("Avail.\ntokens", align = "center", font=("Georgia", 12, "normal"))
         turtle.hideturtle()
 
     def board_limit(self, x, y):

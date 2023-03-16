@@ -97,7 +97,7 @@ class Board():
 
         turtle.penup()
         turtle.goto((((self.cells * self.cell_size) / 4) + 35), ((-(self.cells * self.cell_size) / 2) - 50))
-        turtle.write("Avail.\ntokens", align = "center", font=("Georgia", 14, "normal"))
+        turtle.write("Av. tokens", align = "center", font=("Georgia", 14, "normal"))
         turtle.hideturtle()
 
     def board_limit(self, x, y):

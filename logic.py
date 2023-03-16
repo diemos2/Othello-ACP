@@ -225,13 +225,13 @@ class Logic(Board, Token):
     def black_play_text(self, black_play_text):
         black_play_text.penup()
         black_play_text.goto(0, (((self.cells * self.cell_size) / 2) + 30))
-        black_play_text.write("Player 1 plays...", align = "center", font=("Georgia", 15, "normal"))
+        black_play_text.write("Player 1 plays...", align = "center", font=("Georgia", 18, "normal"))
         black_play_text.hideturtle()
     
     def white_play_text(self, white_play_text):
         white_play_text.penup()
         white_play_text.goto(0, (((self.cells * self.cell_size) / 2) + 30))
-        white_play_text.write("Player 2 plays...", align = "center", font=("Georgia", 15, "normal"))
+        white_play_text.write("Player 2 plays...", align = "center", font=("Georgia", 18, "normal"))
         white_play_text.hideturtle()
     
     def empty_play_text(self, play_text):

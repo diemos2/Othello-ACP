@@ -82,22 +82,22 @@ class Board():
 
         turtle.penup()
         turtle.goto((corner + 20), (corner - 90))
-        turtle.write("Player 1", align = "left", font=("Georgia", 12, "normal"))
+        turtle.write("Player 1", align = "left", font=("Georgia", 14, "normal"))
         turtle.hideturtle()
 
         turtle.penup()
         turtle.goto((corner + 20), (corner - 140))
-        turtle.write("Player 2", align = "left", font=("Georgia", 12, "normal"))
+        turtle.write("Player 2", align = "left", font=("Georgia", 14, "normal"))
         turtle.hideturtle()
 
         turtle.penup()
         turtle.goto(15, (((-(self.cells * self.cell_size) / 2)) - 50))
-        turtle.write("Score", align = "center", font=("Georgia", 12, "normal"))
+        turtle.write("Score", align = "center", font=("Georgia", 14, "normal"))
         turtle.hideturtle()
 
         turtle.penup()
         turtle.goto((((self.cells * self.cell_size) / 4) + 35), ((-(self.cells * self.cell_size) / 2) - 50))
-        turtle.write("Avail.\ntokens", align = "center", font=("Georgia", 12, "normal"))
+        turtle.write("Avail.\ntokens", align = "center", font=("Georgia", 14, "normal"))
         turtle.hideturtle()
 
     def board_limit(self, x, y):

@@ -195,13 +195,13 @@ class Logic(Board, Token):
     def black_score(self, black_score):
         black_score.penup()
         black_score.goto(15, (((-(self.cells * self.cell_size) / 2)) - 90))
-        black_score.write(self.count[0], align = "center", font=("Arial", 12, "normal"))
+        black_score.write(self.count[0], align = "center", font=("Arial", 14, "normal"))
         black_score.hideturtle()
         
     def white_score(self, white_score):
         white_score.penup()
         white_score.goto(15, ((-(self.cells * self.cell_size) / 2) - 140))
-        white_score.write(self.count[1], align = "center", font=("Arial", 12, "normal"))
+        white_score.write(self.count[1], align = "center", font=("Arial", 14, "normal"))
         white_score.hideturtle()
 
     def empty_score(self, score):
@@ -210,13 +210,13 @@ class Logic(Board, Token):
     def black_available(self, black_available):
         black_available.penup()
         black_available.goto((((self.cells * self.cell_size) / 4) + 35), ((-(self.cells * self.cell_size) / 2) - 90))
-        black_available.write(self.availables[0], align = "center", font=("Arial", 12, "normal"))
+        black_available.write(self.availables[0], align = "center", font=("Arial", 14, "normal"))
         black_available.hideturtle()
         
     def white_available(self, white_available):
         white_available.penup()
         white_available.goto((((self.cells * self.cell_size) / 4) + 35), ((-(self.cells * self.cell_size) / 2) - 140))
-        white_available.write(self.availables[1], align = "center", font=("Arial", 12, "normal"))
+        white_available.write(self.availables[1], align = "center", font=("Arial", 14, "normal"))
         white_available.hideturtle()
 
     def empty_available(self, available):
